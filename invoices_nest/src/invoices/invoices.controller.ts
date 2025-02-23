@@ -10,6 +10,7 @@ import {
     Delete,
     Query,
     UseGuards,
+    Request,
 } from '@nestjs/common';
 import { CreateInvoiceDto, UpdateInvoiceDto } from './dto/invoices.dto';
 import { PaginationQueryDto } from '../pagination-query.dto';
@@ -22,31 +23,16 @@ export class InvoicesController {
 
     @UseGuards(JwtAuthGuard)
     @Get()
-    getInvoices(@Query() paginationQuery: PaginationQueryDto) {
+    getInvoices(@Query() paginationQuery: PaginationQueryDto, @Request() req: any) {
+        const userId = req.user.id;
         const { limit, offset } = paginationQuery;
-        return this.invoicesService.getInvoices(limit, offset);
+        return this.invoicesService.getInvoices(userId, limit, offset);
     }
 
     @UseGuards(JwtAuthGuard)
     @Get(':id')
-    getInvoice(@Param('id') id: string) {
-        return this.invoicesService.getInvoice(id);
+    getInvoice(@Param('id') id: string, @Request() req: any) {
+        const userId = req.user.id
+        return this.invoicesService.getInvoice(id, userId);
     }
-    /*
-        @Post()
-        @HttpCode(HttpStatus.ACCEPTED)
-        create(@Body() body: CreateInvoiceDto): CreateInvoiceDto {
-            return this.invoicesService.postBody(body);
-        }
-    
-        @Patch(':id')
-        update(@Param('id') id: string, @Body() body: UpdateInvoiceDto) {
-            return this.invoicesService.updateBody(id, body);
-        }
-    
-        @Delete(':id')
-        remove(@Param('id') id: string) {
-            return this.invoicesService.delete(id);
-        }
-    */
 }

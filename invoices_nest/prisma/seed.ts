@@ -17,7 +17,7 @@ async function main() {
                 "We are excited to share that today's new service!",
             paid: false,
             due_date: "2022-12-24",
-            user_id: 12,
+            user_id: 1,
         },
     });
 
@@ -31,7 +31,7 @@ async function main() {
                 "We are more than excited to share that today's new offer!",
             paid: true,
             due_date: "2024-12-24",
-            user_id: 42,
+            user_id: 1,
         },
     });
 
@@ -45,7 +45,7 @@ async function main() {
                 "Limited offer!",
             paid: true,
             due_date: "2025-12-24",
-            user_id: 3,
+            user_id: 2,
         },
     });
 
@@ -59,7 +59,7 @@ async function main() {
                 "Limited offer today! Grab it now",
             paid: false,
             due_date: "2024-12-24",
-            user_id: 12,
+            user_id: 1,
         },
     });
 
@@ -73,7 +73,7 @@ async function main() {
                 "More infos in our website www.invoices.com",
             paid: false,
             due_date: "2022-1-4",
-            user_id: 3,
+            user_id: 2,
         },
     });
 
