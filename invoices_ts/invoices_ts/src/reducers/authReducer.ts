@@ -37,6 +37,7 @@ export const loginAsync = (email: string, password: string) => async (dispatch: 
         const loginResponse = await loginService.login(email, password)
        
         if (loginResponse.access_token) {
+            localStorage.setItem('access_token', loginResponse.access_token);
             const userData ={email}
             dispatch(setUser(userData))
         } else {
