@@ -18,10 +18,12 @@ const App = () => {
   }, [dispatch, isLogged]);
 
   return (
-    <Routes>
-      <Route path="/invoices" element={isLogged ? <InvoiceList /> : <LoginForm />} />
-      <Route path="/" element={<LoginForm />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/invoices" element={isLogged ? <InvoiceList /> : <LoginForm />} />
+        <Route path="/" element={<LoginForm />} />
+      </Routes>
+    </>
   );
 };
 
